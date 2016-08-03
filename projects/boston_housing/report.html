@@ -11779,7 +11779,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11849,23 +11849,23 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Median price of the data</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Standard deviation of prices of the data</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># Show the calculated statistics</span>
 <span class="k">print</span> <span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -11892,7 +11892,7 @@ Minimum price: $105,000.00
 Maximum price: $1,024,800.00
 Mean price: $454,342.94
 Median price $438,900.00
-Standard deviation of prices: $165,340.28
+Standard deviation of prices: $165,171.13
 </pre>
 </div>
 </div>
@@ -13786,7 +13786,17 @@ YII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> The grid search technique is a technique that runs the algorithm severel times using different parameters to try to find out what the best values are. The parameters are different from the weight them selves. The weights are learned at each run of the algorithm. The parameters affect both the weights and the result. The right parameters give the optimal weights to get the best result. Therefore the algorithm needs to learn new weights for different parameter combinations. The grid search technique learns new weights and scores the algorithm on a test set at each run. The results are then evaluated at the best parameter combination can be chosen.</p>
+<p><strong>Answer: </strong> The grid search technique is a technique that runs the algorithm severel times using different hyperparameters to try to find out what the best values are for there parameters. Examples of types of hyperparameters could be max_depth for decision trees, C for SVMs and alpha for determining the level of regularization for a variety of algorithms. The kind of parameters depend on the algorithm. The hyperparameters are different from the weight themselves. The hyperparameters affect both the weights and the result. The right hyperparameters give the optimal weights to get the best result. Therefore the algorithm needs to learn new weights for different hyperparameter combinations. The grid search technique learns new weights using different hyperparameters and scores the algorithm on a test set at each run. The results are then evaluated and the best hyperparameter combination can be chosen. Grid search works like this</p>
+<ol>
+<li><p>For each parameter combination:</p>
+<ol>
+<li>fit the model to the training data using the parameter combination</li>
+<li>score the model</li>
+</ol>
+</li>
+<li><p>Calculate the best parameter combination by comparing the scores</p>
+</li>
+</ol>
 
 </div>
 </div>
@@ -14029,12 +14039,12 @@ Predicted selling price for Client 3&#39;s home: $961,800.00
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>Predicted selling price for Client 1's home: $414,050.00
-Predicted selling price for Client 2's home: $220,057.89
-Predicted selling price for Client 3's home: $961,800.00</p>
-<p>House 2 has fewest rooms, it is in the poorest neighbourhood and has the worst student to teach ratio so it makes sense it would be the cheapest house.</p>
-<p>House 1 is in the middle on all three parameters and also has a price in the middle</p>
-<p>House 3 has most roomes is in the richest neighbourhood and has the best student to teacher ration so it also makes sense it would have the highest price.</p>
+<p>Predicted selling price for Client 1's home: $414,050.00</p>
+<p>Predicted selling price for Client 2's home: $220,057.89</p>
+<p>Predicted selling price for Client 3's home: $961,800.00</p>
+<p>House 2 has fewest rooms, it is in the poorest neighbourhood and has the worst student to teacher ratio so it makes sense it would be the cheapest house. It still over 100.000 above the price of the cheapest house in the test set but more than 200.000 below the mean price and there by more than one standard deviation from the mean putting it at the bottom end of the data set.</p>
+<p>House 1 is in the middle on all three parameters and also has a price in the middle. Its also a little below the mean price of all the houses. This house is an average house for the data set.</p>
+<p>House 3 has most roomes is in the richest neighbourhood and has the best student to teacher ration so it also makes sense it would have the highest price. The price is quite close to the maximum price of the data set and more than two standard deviations from the mean. This is deffinetly a top tier house.</p>
 
 </div>
 </div>
